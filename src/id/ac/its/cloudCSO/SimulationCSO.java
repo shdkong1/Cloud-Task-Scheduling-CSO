@@ -144,6 +144,15 @@ public class SimulationCSO {
             // insert CSO here
 
             CloudSim.startSimulation();
+
+            outputWriter.flush();
+            outputWriter.close();
+            List<Cloudlet> newList = broker.getCloudletReceivedList();
+
+            CloudSim.stopSimulation();
+            printCLoudletList(newList);
+            Log.printLine("Cloud Simulation Example Finished!");
+
         } catch (Exception e) {
             e.printStackTrace();
             Log.printLine("The simulation has been terminated due to an error");

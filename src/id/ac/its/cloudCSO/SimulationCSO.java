@@ -142,6 +142,9 @@ public class SimulationCSO {
             // insert CSO here
 
             CloudSim.startSimulation();
+        } catch (Exception e) {
+            e.printStackTrace();
+            Log.printLine("The simulation has been terminated due to an error");
         }
     }
 
@@ -251,5 +254,6 @@ public class SimulationCSO {
         }
         return broker;
     }
+
 
 }

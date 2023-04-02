@@ -25,7 +25,9 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
+import java.text.DecimalFormat;
 import java.util.*;
+import java.util.stream.DoubleStream;
 
 public class SimulationCSO {
 
@@ -255,5 +257,112 @@ public class SimulationCSO {
         return broker;
     }
 
+    private static void printCLoudletList(List<Cloudlet> list) throws FileNotFoundException {
 
+        int size = list.size();
+        Cloudlet cloudlet = null;
+
+        String indent = "\t";
+        Log.printLine();
+        Log.printLine("========== OUTPUT ==========");
+        Log.printLine("Cloudlet ID" + indent + "Status" + indent +
+                "Datacenter ID" + indent + "Vm ID" + indent + "Time" + indent +
+                "Start Time" + indent + "Finish Time" + indent + "Waiting Time");
+
+        double waitTimeSum = 0.0;
+        double cpuTimeSum = 0.0;
+        int totalValues = 0;
+        DecimalFormat dft = new DecimalFormat("###.##");
+        double responseTime[] = new double[size];
+
+        for (int i = 0; i < size; i++) {
+            cloudlet = list.get(i);
+            Log.print(cloudlet.getCloudletId() + indent);
+
+            if (cloudlet.getCloudletStatus() == Cloudlet.SUCCESS) {
+                Log.print("SUCCESS" + indent);
+                cpuTimeSum = cpuTimeSum + cloudlet.getActualCPUTime();
+                waitTimeSum = waitTimeSum + cloudlet.getWaitingTime();
+                Log.printLine(
+                        (cloudlet.getResourceId() - 1) + indent + cloudlet.getVmId() + indent +
+                        dft.format(cloudlet.getActualCPUTime()) + indent +
+                        dft.format(cloudlet.getExecStartTime()) + indent +
+                        dft.format(cloudlet.getFinishTime()) + indent +
+                        dft.format(cloudlet.getWaitingTime())
+                );
+                totalValues++;
+                responseTime[i] = cloudlet.getActualCPUTime();
+            }
+        }
+
+        DoubleSummaryStatistics stats = DoubleStream.of(responseTime).summaryStatistics();
+        Log.printLine();
+        System.out.println("min: " + stats.getMin());
+        System.out.println("Response Time:" + (cpuTimeSum / totalValues));
+
+        Log.printLine();
+        Log.printLine("Total CPU Time: " + cpuTimeSum);
+        Log.printLine("Total Wait Time: " + waitTimeSum);
+        Log.printLine("Total Cloudlets Finished: " + totalValues);
+        Log.printLine();
+        Log.printLine();
+
+        Log.printLine("Average Cloudlets Finished" + (cpuTimeSum / totalValues));
+
+        double totalStartTime = 0.0;
+        for (int i = 0; i < size; i++) {
+            totalStartTime = cloudletList.get(i).getExecStartTime();
+        }
+        double avgStartTime = totalStartTime / size;
+        System.out.println("Average Start Time" + avgStartTime);
+
+        double execTime = 0.0;
+        for (int i = 0; i < size; i++) {
+            execTime = cloudletList.get(i).getActualCPUTime();
+        }
+        double avgExecTime = execTime / size;
+        System.out.println("Average Execution Time: " + avgExecTime);
+
+        double totalTime = 0.0;
+        for (int i = 0; i < size; i++) {
+            totalTime = cloudletList.get(i).getFinishTime();
+        }
+        double avgTotalTime = totalTime / size;
+        System.out.println("Average Finish Time: " + avgTotalTime);
+
+        double avgWaitTime = cloudlet.getWaitingTime() / size;
+        System.out.println("Average Waiting Time: " + avgWaitTime);
+
+        Log.printLine();
+        Log.printLine();
+
+        double maxFT = 0.0;
+        for (int i = 0; i < size; i++) {
+            double currentFT = cloudletList.get(i).getFinishTime();
+            if (currentFT > maxFT) {
+                maxFT = currentFT;
+            }
+        }
+        double throughput = size / maxFT;
+        System.out.println("Throughput: " + throughput);
+
+        double makespan = 0.0;
+        double makespan_total = makespan + cloudlet.getFinishTime();
+        System.out.println("Makespan: " + makespan_total);
+
+        double degOfImbalance = (stats.getMax() - stats.getMin()) / (cpuTimeSum / totalValues);
+        System.out.println("Imbalance Degree: " + degOfImbalance);
+
+        double schedulingLength = waitTimeSum + makespan_total;
+        Log.printLine("Total Scheduling Length: " + schedulingLength);
+
+        double resourceUtil = (cpuTimeSum / (makespan_total * 54)) * 100;
+        Log.printLine("Resource Utilization: " + resourceUtil);
+
+        Log.printLine(String.format("Total Energy Consumption: %.2f kWh",
+                (datacenter1.getPower() + datacenter2.getPower() + datacenter3.getPower() +
+                 datacenter4.getPower() + datacenter5.getPower() + datacenter6.getPower()) /
+                (3600*1000)
+        ));
+    }
 }

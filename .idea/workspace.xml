@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1176ec5b-3c24-4ade-8336-66794d7d7706" name="Changes" comment="initial commit">
+    <list default="true" id="1176ec5b-3c24-4ade-8336-66794d7d7706" name="Changes" comment="fix main">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/id/ac/its/cloudCSO/SimulationCSO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/id/ac/its/cloudCSO/SimulationCSO.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,7 +63,7 @@
       <updated>1680185009508</updated>
       <workItem from="1680185011101" duration="5015000" />
       <workItem from="1680355222221" duration="2474000" />
-      <workItem from="1680400029397" duration="1846000" />
+      <workItem from="1680400029397" duration="4561000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <created>1680401584597</created>
@@ -71,7 +72,14 @@
       <option name="project" value="LOCAL" />
       <updated>1680401584598</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="fix main">
+      <created>1680402568839</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1680402568839</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -90,6 +98,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="initial commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="initial commit" />
+    <MESSAGE value="fix main" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix main" />
   </component>
 </project>

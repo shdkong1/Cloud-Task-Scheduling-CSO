@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="cloudsim-3.0.3">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/jar/cloudsim-3.0.3.jar!/" />
+      <root url="jar://$PROJECT_DIR$/jar/cloudsim-examples-3.0.3.jar!/" />
+      <root url="jar://$PROJECT_DIR$/jar/commons-math3-3.6.1.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

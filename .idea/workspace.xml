@@ -4,7 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1176ec5b-3c24-4ade-8336-66794d7d7706" name="Changes" comment="impl printCloudletList()">
+    <list default="true" id="1176ec5b-3c24-4ade-8336-66794d7d7706" name="Changes" comment="add printCloudletList() call to main">
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/id/ac/its/cloudCSO/Algorithm.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/id/ac/its/cloudCSO/Behavior.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/id/ac/its/cloudCSO/Cat.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/id/ac/its/cloudCSO/Evaluator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/id/ac/its/cloudCSO/Parameters.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -31,27 +37,27 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "master",
-    "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "D:/Idea Projects/Cloud-Task-Scheduling-CSO/jar/commons-math3-3.6.1.jar",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "org.jetbrains.plugins.github.ui.GithubSettingsConfigurable",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/Idea Projects/Cloud-Task-Scheduling-CSO/jar/commons-math3-3.6.1.jar&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;org.jetbrains.plugins.github.ui.GithubSettingsConfigurable&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -62,7 +68,10 @@
       <updated>1680185009508</updated>
       <workItem from="1680185011101" duration="5015000" />
       <workItem from="1680355222221" duration="2474000" />
-      <workItem from="1680400029397" duration="5947000" />
+      <workItem from="1680400029397" duration="7857000" />
+      <workItem from="1680708499582" duration="15658000" />
+      <workItem from="1680879428143" duration="1774000" />
+      <workItem from="1681158552237" duration="652000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <created>1680401584597</created>
@@ -85,7 +94,14 @@
       <option name="project" value="LOCAL" />
       <updated>1680408448586</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="add printCloudletList() call to main">
+      <created>1680443052190</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1680443052190</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -133,6 +149,7 @@
     <MESSAGE value="initial commit" />
     <MESSAGE value="fix main" />
     <MESSAGE value="impl printCloudletList()" />
-    <option name="LAST_COMMIT_MESSAGE" value="impl printCloudletList()" />
+    <MESSAGE value="add printCloudletList() call to main" />
+    <option name="LAST_COMMIT_MESSAGE" value="add printCloudletList() call to main" />
   </component>
 </project>

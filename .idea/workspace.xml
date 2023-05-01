@@ -4,14 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1176ec5b-3c24-4ade-8336-66794d7d7706" name="Changes" comment="add printCloudletList() call to main">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/id/ac/its/cloudCSO/Algorithm.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/id/ac/its/cloudCSO/Behavior.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/id/ac/its/cloudCSO/Cat.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/id/ac/its/cloudCSO/Evaluator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/id/ac/its/cloudCSO/Parameters.java" afterDir="false" />
+    <list default="true" id="1176ec5b-3c24-4ade-8336-66794d7d7706" name="Changes" comment="added CSO python impl">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/id/ac/its/cloudCSO/Cat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/id/ac/its/cloudCSO/Cat.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,7 +46,7 @@
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;org.jetbrains.plugins.github.ui.GithubSettingsConfigurable&quot;,
@@ -71,7 +66,10 @@
       <workItem from="1680400029397" duration="7857000" />
       <workItem from="1680708499582" duration="15658000" />
       <workItem from="1680879428143" duration="1774000" />
-      <workItem from="1681158552237" duration="652000" />
+      <workItem from="1681158552237" duration="1788000" />
+      <workItem from="1681261328416" duration="4047000" />
+      <workItem from="1681652627394" duration="3301000" />
+      <workItem from="1682941572256" duration="7058000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <created>1680401584597</created>
@@ -101,7 +99,21 @@
       <option name="project" value="LOCAL" />
       <updated>1680443052190</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="implementing CSO">
+      <created>1681165728067</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1681165728067</updated>
+    </task>
+    <task id="LOCAL-00006" summary="added CSO python impl">
+      <created>1681165976902</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1681165976902</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -150,6 +162,8 @@
     <MESSAGE value="fix main" />
     <MESSAGE value="impl printCloudletList()" />
     <MESSAGE value="add printCloudletList() call to main" />
-    <option name="LAST_COMMIT_MESSAGE" value="add printCloudletList() call to main" />
+    <MESSAGE value="implementing CSO" />
+    <MESSAGE value="added CSO python impl" />
+    <option name="LAST_COMMIT_MESSAGE" value="added CSO python impl" />
   </component>
 </project>

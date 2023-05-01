@@ -5,6 +5,7 @@ import org.apache.commons.math3.stat.StatUtils;
 
 import java.lang.Math;
 import java.util.ArrayList;
+import java.util.Objects;
 import java.util.Random;
 
 public class Cat {
@@ -29,7 +30,7 @@ public class Cat {
         this.dimensionSize = this.position.size();
     }
 
-    public void move() {
+    public void move(ArrayList<Integer> bestPosition) throws Exception {
         if (this.flag == Behavior.SEEKING) {
             ArrayList<ArrayList<Integer>> candidateMoves = new ArrayList<>();
 
@@ -75,7 +76,88 @@ public class Cat {
             for (int i = 0; i < probabilities.length; i++) {
                 probabilities[i] = probabilities[i] / probSum;
             }
+
+            double[] cumulativeDist = new double[probabilities.length];
+            cumulativeDist[0] = probabilities[0];
+            for (int i = 1; i < probabilities.length; i++) {
+                cumulativeDist[i] = cumulativeDist[i - 1] + probabilities[i];
+            }
+            double rand = random.nextDouble();
+            int nextPosIdx = 0;
+            while (nextPosIdx < cumulativeDist.length && rand > cumulativeDist[nextPosIdx]) {
+                nextPosIdx++;
+            }
+
+            position = candidateMoves.get(nextPosIdx);
         }
+        else if (this.flag == Behavior.TRACING) {
+            double r1 = random.nextDouble();
+            this.velocity = addVel(
+                    multiply(params.w, velocity),
+                    multiply(r1 * params.c, subtract(bestPosition, position))
+            );
+        }
+        else {
+            throw new Exception("Unreachable");
+        }
+    }
+
+    private void addPos(ArrayList<Integer> pos,
+                                      ArrayList<Pair<Integer, Integer>> vel) {
+        for (Pair<Integer, Integer> pair: vel) {
+            int idx1 = pos.indexOf(pair.getKey());
+            int idx2 = pos.indexOf(pair.getValue());
+            int temp = pos.get(idx1);
+            pos.set(idx1, pos.get(idx2));
+            pos.set(idx2, temp);
+        }
+    }
+
+    private ArrayList<Pair<Integer, Integer>> addVel(ArrayList<Pair<Integer, Integer>> vel1,
+                                                     ArrayList<Pair<Integer, Integer>> vel2) {
+        if (vel1.equals(vel2))
+            return new ArrayList<>();
+
+        ArrayList<Pair<Integer, Integer>> newVel = new ArrayList<>();
+        newVel.addAll(vel1);
+        newVel.addAll(vel2);
+        for (int idx2 = vel1.size(), idx1 = idx2 - 1; idx2 < newVel.size() && idx1 >= 0; idx1--, idx2++) {
+            if (newVel.get(idx1).equals(newVel.get(idx2))) {
+                newVel.remove(idx1);
+                newVel.remove(idx2);
+                idx2 = idx1 - 1;
+            }
+            else break;
+        }
+        return newVel;
+    }
+
+    private ArrayList<Pair<Integer, Integer>> subtract(ArrayList<Integer> pos1,
+                                                       ArrayList<Integer> pos2) {
+        ArrayList<Pair<Integer, Integer>> vel = new ArrayList<>();
+        ArrayList<Integer> pos1Copy = new ArrayList<>(pos1);
+        while (!pos1Copy.equals(pos2)) {
+            for (int i = 0; i < pos1Copy.size(); i++) {
+                if (!pos1Copy.get(i).equals(pos2.get(i))) {
+                    int j = pos2.indexOf(pos1Copy.get(i));
+                    int temp = pos1Copy.get(i);
+                    pos1Copy.set(i, pos1Copy.get(j));
+                    pos1Copy.set(j, temp);
+                    vel.add(new Pair<>(pos1Copy.get(j), pos1Copy.get(i)));
+                }
+            }
+        }
+        return vel;
+    }
+
+    private ArrayList<Pair<Integer, Integer>> multiply(double num,
+                                                       ArrayList<Pair<Integer, Integer>> vel) {
+        if (num == 0) return new ArrayList<>();
+
+        double decPart = num % 1;
+        int intPart = (int) (num - decPart);
+        int newLength = (int) (decPart * vel.size());
+        return (ArrayList<Pair<Integer, Integer>>) vel.subList(0, newLength);
     }
 }
 

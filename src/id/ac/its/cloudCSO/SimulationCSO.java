@@ -35,11 +35,18 @@ public class SimulationCSO {
     private static List<Cloudlet> cloudletList;
     private static List<Vm> vmList;
 
+    /**
+     * Creates a list of VMs to be passed to the broker.
+     *
+     * @param userId ID of user who owns the VMs
+     * @param vms    number of VMs to be created
+     * @return       a list of VMs
+     */
     private static List<Vm> createVM(int userId, int vms) {
 
         LinkedList<Vm> list = new LinkedList<Vm>();
 
-        //VM Parameters
+                                        // VM Parameters
         long size = 10000;              // Image size (MB)
         int[] ram = {512, 1024, 2048};  // Memory (MB)
         int[] mips = {400, 500, 600};   // Processing Power (MIPS)
@@ -58,13 +65,20 @@ public class SimulationCSO {
         return list;
     }
 
+    /**
+     * Returns an ArrayList of cloudlet lengths from a specified file.
+     *
+     * @param cloudletCount size of ArrayList, i.e. number of sizes to be retrieved from dataset.
+     * @return              an ArrayList of task sizes.
+     */
     private static ArrayList<Double> getSeedValue(int cloudletCount) {
 
         ArrayList<Double> seed = new ArrayList<>();
-        Log.printLine(System.getProperty("user.dir") + "/SDSCDataset.txt");
+        String filepath = System.getProperty("user.dir") + "/SDSCDataset.txt"; // name of dataset file
+        Log.printLine(System.getProperty(filepath));
 
         try {
-            File fobj = new File(System.getProperty("user.dir") + "/SDSCDataset.txt");
+            File fobj = new File(filepath);
             java.util.Scanner readFile = new Scanner(fobj);
 
             while (readFile.hasNextLine() && cloudletCount > 0) {
@@ -79,6 +93,13 @@ public class SimulationCSO {
         return seed;
     }
 
+    /**
+     * Creates a list of cloudlets to be executed.
+     *
+     * @param userId        ID of user who owns the cloudlets.
+     * @param cloudletCount number of cloudlets to be created.
+     * @return              a list of cloudlets.
+     */
     private static List<Cloudlet> createCloudlet(int userId, int cloudletCount) {
 
         ArrayList<Double> randomSeed = getSeedValue(cloudletCount);
@@ -109,6 +130,7 @@ public class SimulationCSO {
         Log.printLine("Starting Cloud Simulation CSO...");
 
         try {
+            // Initialize simulation parameters
             int num_user = 1;
             Calendar calendar = Calendar.getInstance();
             boolean trace_flag = false;
@@ -117,6 +139,7 @@ public class SimulationCSO {
             int vmNumber = 54;
             int cloudletNumber = 7395;
 
+            // Initialize simulation
             CloudSim.init(num_user, calendar, trace_flag);
 
             int hostId = 0;
@@ -132,16 +155,50 @@ public class SimulationCSO {
             hostId = 15;
             datacenter6 = createDatacenter("DataCenter_6", hostId);
 
+            // Create broker
             DatacenterBroker broker = createBroker();
             int brokerId = broker.getId();
 
+            // Create VMs and cloudlets
             vmList = createVM(brokerId, vmNumber);
             cloudletList = createCloudlet(brokerId, cloudletNumber);
 
+            // Submit VMs and cloudlets to broker
             broker.submitVmList(vmList);
             broker.submitCloudletList(cloudletList);
 
-            // insert CSO here
+            // run CSO
+            int cloudletLoopingNumber = cloudletNumber / vmNumber - 1;
+            Random random = new Random();
+
+            for (int cloudletIterator = 0; cloudletIterator < cloudletLoopingNumber; cloudletIterator++) {
+                System.out.println("Cloudlet Iteration Number " + cloudletIterator);
+                for (int datacenterIterator = 1; datacenterIterator <= 6; datacenterIterator++) {
+                    CSOAlgorithm cso = new CSOAlgorithm(15, 20, datacenterIterator, cloudletIterator,
+                            new Parameters(5, 0.8, 0.3, 0.7, 2.05),
+                            new Evaluator(cloudletList, vmList));
+
+                    System.out.println("Datacenter " + datacenterIterator);
+                    ArrayList<Integer> position = new ArrayList<>(Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9));
+
+                    Cat currentCat = cso.run(position);
+
+                    for (int assigner=0+(datacenterIterator-1)*9 + cloudletIterator*54; assigner<9+(datacenterIterator-1)*9 + cloudletIterator*54; assigner++)
+                    {
+                        broker.bindCloudletToVm(assigner, currentCat.getPosition().get(assigner%9));
+                        outputWriter.write(Long.toString(cloudletList.get(assigner).getCloudletLength())); // Print Cloudlet Length
+                        outputWriter.write(" ");
+                        outputWriter.write(Long.toString(currentCat.getPosition().get(assigner%9)%9)); // Print Assigned VM ID %
+                        outputWriter.write(" ");
+                        if (assigner%9<8)
+                        {
+                        	outputWriter.write(",");
+                        }
+                    }
+                }
+            }
+
+
 
             CloudSim.startSimulation();
 

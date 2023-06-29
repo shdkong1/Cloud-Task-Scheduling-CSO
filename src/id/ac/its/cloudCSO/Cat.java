@@ -5,32 +5,41 @@ import org.apache.commons.math3.stat.StatUtils;
 
 import java.lang.Math;
 import java.util.ArrayList;
-import java.util.Objects;
 import java.util.Random;
 
+/**
+ * An implementation of cats for use in CSO Algorithm. The calculations for <code>move()</code> are adapted from
+ * Bouzidi et al.
+ *
+ * @author shidqi
+ */
 public class Cat {
 
     private ArrayList<Integer> position;
     private ArrayList<Pair<Integer, Integer>> velocity;
     private Behavior flag;
+    private int datacenterIterator;
+    private int cloudletIterator;
     private final Evaluator eval;
     private final Parameters params;
     private final int dimensionSize;
     private final Random random;
 
     public Cat(ArrayList<Integer> pos, ArrayList<Pair<Integer, Integer>> vel,
-               Behavior flag, Parameters params) {
+               Behavior flag, int dciter, int cletiter, Parameters params, Evaluator eval) {
         this.position = pos;
         this.velocity = vel;
         this.flag = flag;
         this.params = params;
+        this.eval = eval;
+        this.datacenterIterator = dciter;
+        this.cloudletIterator = cletiter;
 
-        this.eval = new Evaluator();
         this.random = new Random();
         this.dimensionSize = this.position.size();
     }
 
-    public void move(ArrayList<Integer> bestPosition) throws Exception {
+    public void move(ArrayList<Integer> bestPosition) {
         if (this.flag == Behavior.SEEKING) {
             ArrayList<ArrayList<Integer>> candidateMoves = new ArrayList<>();
 
@@ -58,7 +67,7 @@ public class Cat {
 
             double[] fitnessValues = new double[candidateMoves.size()];
             for (int i = 0; i < candidateMoves.size(); i++) {
-                fitnessValues[i] = eval.evaluate();
+                fitnessValues[i] = eval.evaluate(candidateMoves.get(i), datacenterIterator, cloudletIterator);
             }
             double fitMin = StatUtils.min(fitnessValues);
             double fitMax = StatUtils.max(fitnessValues);
@@ -96,9 +105,10 @@ public class Cat {
                     multiply(params.w, velocity),
                     multiply(r1 * params.c, subtract(bestPosition, position))
             );
+            addPos(this.position, this.velocity);
         }
         else {
-            throw new Exception("Unreachable");
+//            throw new Exception("Unreachable");
         }
     }
 
@@ -157,7 +167,16 @@ public class Cat {
         double decPart = num % 1;
         int intPart = (int) (num - decPart);
         int newLength = (int) (decPart * vel.size());
-        return (ArrayList<Pair<Integer, Integer>>) vel.subList(0, newLength);
+        ArrayList<Pair<Integer, Integer>> newList = new ArrayList<>(vel.subList(0, newLength));
+        return newList;
+    }
+
+    public ArrayList<Integer> getPosition() {
+        return position;
+    }
+
+    public void setFlag(Behavior flag) {
+        this.flag = flag;
     }
 }
 

@@ -58,7 +58,7 @@ public class CSOAlgorithm {
      */
     public Cat run(ArrayList<Integer> position) {
         int numSeeking = (int) (params.mixtureRatio * numCats);
-        bestScore = 0;
+        bestScore = Double.POSITIVE_INFINITY;
         bestCat = null;
         scores = new double[numCats];
         cats = new Cat[numCats];
@@ -85,8 +85,8 @@ public class CSOAlgorithm {
             int catIter = 0;
             for (Cat c: cats) {
                 double score = eval.evaluate(c.getPosition(), datacenterIterator, cloudletIterator);
-                scores[catIter] = Math.max(score, scores[catIter]);
-                if (score >= bestScore) {
+                scores[catIter] = Math.min(score, scores[catIter]);
+                if (score <= bestScore) {
                     bestScore = score;
                     bestCat = c;
                 }

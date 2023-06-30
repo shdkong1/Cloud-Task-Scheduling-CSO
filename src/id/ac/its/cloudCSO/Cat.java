@@ -82,7 +82,7 @@ public class Cat {
                     probabilities[i] = 1.0;
                 }
                 else {
-                    probabilities[i] = Math.abs(fitnessValues[i] - fitMin) / (fitMax - fitMin);
+                    probabilities[i] = Math.abs(fitnessValues[i] - fitMax) / (fitMax - fitMin);
                 }
             }
             double probSum = StatUtils.sum(probabilities);
@@ -97,7 +97,7 @@ public class Cat {
             }
             double rand = random.nextDouble();
             int nextPosIdx = 0;
-            while (nextPosIdx < cumulativeDist.length && rand > cumulativeDist[nextPosIdx]) {
+            while (nextPosIdx < cumulativeDist.length - 1 && rand > cumulativeDist[nextPosIdx]) {
                 nextPosIdx++;
             }
 

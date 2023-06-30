@@ -179,12 +179,12 @@ public class SimulationCSO {
                             new Evaluator(cloudletList, vmList));
 
                     System.out.println("Datacenter " + datacenterIterator);
-                    ArrayList<Integer> position = new ArrayList<>(Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9));
+//                    ArrayList<Integer> position = new ArrayList<>(Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9));
 
-//                    ArrayList<Integer> position = new ArrayList<>();
-//                    for (int i = 0; i < 9 /* || (cloudletIterator * 54 + i) < cloudletNumber */; i++) {
-//                        position.add(random.nextInt(9));
-//                    }
+                    ArrayList<Integer> position = new ArrayList<>();
+                    for (int i = 0; i < 9 /* || (cloudletIterator * 54 + i) < cloudletNumber */; i++) {
+                        position.add(random.nextInt(9));
+                    }
 
                     Cat currentCat = cso.run(position);
 

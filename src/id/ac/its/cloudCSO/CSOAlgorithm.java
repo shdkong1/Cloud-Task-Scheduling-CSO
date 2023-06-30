@@ -1,5 +1,6 @@
 package id.ac.its.cloudCSO;
 
+import org.cloudbus.cloudsim.Log;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Random;
@@ -92,6 +93,12 @@ public class CSOAlgorithm {
                 }
                 catIter++;
             }
+
+            Log.print("Fittest: ");
+            for (int posItem: bestCat.getPosition()) {
+                Log.print(posItem + " ");
+            }
+            Log.printLine("Fitness: " + bestScore);
 
             for (Cat c: cats) {
                 c.move(bestCat.getPosition());

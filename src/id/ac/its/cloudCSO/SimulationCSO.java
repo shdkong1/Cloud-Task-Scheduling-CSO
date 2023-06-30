@@ -181,13 +181,18 @@ public class SimulationCSO {
                     System.out.println("Datacenter " + datacenterIterator);
                     ArrayList<Integer> position = new ArrayList<>(Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9));
 
+//                    ArrayList<Integer> position = new ArrayList<>();
+//                    for (int i = 0; i < 9 /* || (cloudletIterator * 54 + i) < cloudletNumber */; i++) {
+//                        position.add(random.nextInt(9));
+//                    }
+
                     Cat currentCat = cso.run(position);
 
                     for (int assigner=0+(datacenterIterator-1)*9 + cloudletIterator*54; assigner<9+(datacenterIterator-1)*9 + cloudletIterator*54; assigner++)
                     {
                         broker.bindCloudletToVm(assigner, currentCat.getPosition().get(assigner%9));
-                        outputWriter.write(Long.toString(cloudletList.get(assigner).getCloudletLength())); // Print Cloudlet Length
-                        outputWriter.write(" ");
+//                        outputWriter.write(Long.toString(cloudletList.get(assigner).getCloudletLength())); // Print Cloudlet Length
+//                        outputWriter.write(" ");
                         outputWriter.write(Long.toString(currentCat.getPosition().get(assigner%9)%9)); // Print Assigned VM ID %
                         outputWriter.write(" ");
                         if (assigner%9<8)
@@ -195,10 +200,9 @@ public class SimulationCSO {
                         	outputWriter.write(",");
                         }
                     }
+                    outputWriter.write("\n");
                 }
             }
-
-
 
             CloudSim.startSimulation();
 

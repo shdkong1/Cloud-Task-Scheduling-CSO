@@ -4,15 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1176ec5b-3c24-4ade-8336-66794d7d7706" name="Changes" comment="added CSO python impl">
-      <change afterPath="$PROJECT_DIR$/src/id/ac/its/cloudCSO/CSOAlgorithm.java" afterDir="false" />
+    <list default="true" id="1176ec5b-3c24-4ade-8336-66794d7d7706" name="Changes" comment="excluded python impl from versioning">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/excl/pycso/cat.py" beforeDir="false" afterPath="$PROJECT_DIR$/excl/pycso/cat.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/id/ac/its/cloudCSO/Algorithm.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/id/ac/its/cloudCSO/Behavior.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/id/ac/its/cloudCSO/Behavior.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/id/ac/its/cloudCSO/CSOAlgorithm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/id/ac/its/cloudCSO/CSOAlgorithm.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/id/ac/its/cloudCSO/Cat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/id/ac/its/cloudCSO/Cat.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/id/ac/its/cloudCSO/Evaluator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/id/ac/its/cloudCSO/Evaluator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/id/ac/its/cloudCSO/Parameters.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/id/ac/its/cloudCSO/Parameters.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/id/ac/its/cloudCSO/SimulationCSO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/id/ac/its/cloudCSO/SimulationCSO.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -39,27 +35,36 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/GA-ANN&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;org.jetbrains.plugins.github.ui.GithubSettingsConfigurable&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "master",
+    "ignore.virus.scanning.warn.message": "true",
+    "last_opened_file_path": "D:/GA-ANN",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "project.propCompiler",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
+  <component name="RunManager">
+    <configuration name="run" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="id.ac.its.cloudCSO.SimulationCSO" />
+      <module name="Cloud-Task-Scheduling-CSO" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -86,7 +91,7 @@
       <workItem from="1687424958311" duration="2357000" />
       <workItem from="1687503610615" duration="4450000" />
       <workItem from="1687920711844" duration="4191000" />
-      <workItem from="1688023002429" duration="4184000" />
+      <workItem from="1688023002429" duration="13709000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <created>1680401584597</created>
@@ -130,7 +135,28 @@
       <option name="project" value="LOCAL" />
       <updated>1681165976902</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="added eval function and integrated CSO to cloudsim simulation">
+      <created>1688032451023</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1688032451023</updated>
+    </task>
+    <task id="LOCAL-00008" summary="excluded python impl from versioning">
+      <created>1688032511419</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1688032511419</updated>
+    </task>
+    <task id="LOCAL-00009" summary="excluded python impl from versioning">
+      <created>1688034608472</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1688034608472</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -181,6 +207,23 @@
     <MESSAGE value="add printCloudletList() call to main" />
     <MESSAGE value="implementing CSO" />
     <MESSAGE value="added CSO python impl" />
-    <option name="LAST_COMMIT_MESSAGE" value="added CSO python impl" />
+    <MESSAGE value="added eval function and integrated CSO to cloudsim simulation" />
+    <MESSAGE value="excluded python impl from versioning" />
+    <option name="LAST_COMMIT_MESSAGE" value="excluded python impl from versioning" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint type="java-exception">
+          <properties class="java.lang.IndexOutOfBoundsException" package="java.lang" />
+          <option name="timeStamp" value="9" />
+        </breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/id/ac/its/cloudCSO/Cat.java</url>
+          <line>65</line>
+          <option name="timeStamp" value="15" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

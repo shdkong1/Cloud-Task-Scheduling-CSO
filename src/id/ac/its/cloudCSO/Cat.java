@@ -45,22 +45,23 @@ public class Cat {
 
             for (int i = 0; i < params.seekingMemPool; i++) {
                 ArrayList<Integer> positionCopy = new ArrayList<>();
-                int srd = random.nextInt(dimensionSize + 1);
+                int srd = random.nextInt(dimensionSize);
                 int cdc = (int) (dimensionSize * params.countDimensionChg);
                 int pos = (srd + cdc) % dimensionSize;
 
                 if (i == 0) {
-                    candidateMoves.add(positionCopy);
+                    candidateMoves.add(this.position);
                     continue;
                 }
 
                 for (int j = 0; j < dimensionSize; j++) {
-                    if ((srd < pos) && (j >= srd) && (j < pos)) {
+                    if ((srd < pos) && (j >= srd) && (j <= pos)) {
                         positionCopy.add(position.get(pos - (j - srd)));
-                    } else if ((j >= pos) && (j < srd)) {
+                    } else if ((j >= pos) && (j <= srd)) {
                         positionCopy.add(position.get(srd - (j - pos)));
+                    } else {
+                        positionCopy.add(position.get(j));
                     }
-                    positionCopy.add(position.get(j));
                 }
                 candidateMoves.add(positionCopy);
             }
@@ -133,8 +134,8 @@ public class Cat {
         newVel.addAll(vel2);
         for (int idx2 = vel1.size(), idx1 = idx2 - 1; idx2 < newVel.size() && idx1 >= 0; idx1--, idx2++) {
             if (newVel.get(idx1).equals(newVel.get(idx2))) {
-                newVel.remove(idx1);
                 newVel.remove(idx2);
+                newVel.remove(idx1);
                 idx2 = idx1 - 1;
             }
             else break;

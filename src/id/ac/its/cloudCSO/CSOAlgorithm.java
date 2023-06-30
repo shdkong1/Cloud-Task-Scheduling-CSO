@@ -57,7 +57,7 @@ public class CSOAlgorithm {
      * @return          Best cat in the population.
      */
     public Cat run(ArrayList<Integer> position) {
-        int numSeeking = (int) ((params.mixtureRatio * numCats) / 100);
+        int numSeeking = (int) (params.mixtureRatio * numCats);
         bestScore = 0;
         bestCat = null;
         scores = new double[numCats];

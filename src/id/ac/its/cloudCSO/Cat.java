@@ -57,11 +57,11 @@ public class Cat {
 
                 for (int j = 0; j < dimensionSize; j++) {
                     if ((srd < pos) && (j >= srd) && (j <= pos)) {
-//                        positionCopy.add(position.get(pos - (j - srd)));
-                        positionCopy.add(random.nextInt(dimensionSize));
+                        positionCopy.add(position.get(pos - (j - srd)));
+//                        positionCopy.add(random.nextInt(dimensionSize));
                     } else if ((j >= pos) && (j <= srd)) {
-//                        positionCopy.add(position.get(srd - (j - pos)));
-                        positionCopy.add(random.nextInt(dimensionSize));
+                        positionCopy.add(position.get(srd - (j - pos)));
+//                        positionCopy.add(random.nextInt(dimensionSize));
                     } else {
                         positionCopy.add(position.get(j));
                     }
@@ -119,12 +119,12 @@ public class Cat {
     private void addPos(ArrayList<Integer> pos,
                                       ArrayList<Pair<Integer, Integer>> vel) {
         for (Pair<Integer, Integer> pair: vel) {
-//            int idx1 = pos.indexOf(pair.getKey());
-//            int idx2 = pos.indexOf(pair.getValue());
-//            int temp = pos.get(idx1);
-//            pos.set(idx1, pos.get(idx2));
-//            pos.set(idx2, temp);
-            pos.set(pair.getKey(), pair.getValue());
+            int idx1 = pos.indexOf(pair.getKey());
+            int idx2 = pos.indexOf(pair.getValue());
+            int temp = pos.get(idx1);
+            pos.set(idx1, pos.get(idx2));
+            pos.set(idx2, temp);
+//            pos.set(pair.getKey(), pair.getValue());
         }
     }
 
@@ -135,25 +135,27 @@ public class Cat {
 
         ArrayList<Pair<Integer, Integer>> newVel1 = new ArrayList<>(vel1);
         ArrayList<Pair<Integer, Integer>> newVel2 = new ArrayList<>(vel2);
-//        for (int idx2 = vel1.size(), idx1 = idx2 - 1; idx2 < newVel.size() && idx1 >= 0; idx1--, idx2++) {
-//            if (newVel.get(idx1).equals(newVel.get(idx2))) {
-//                newVel.remove(idx2);
-//                newVel.remove(idx1);
-//                idx2 = idx1 - 1;
-//            }
-//            else break;
-//        }
-        for (int i = 0; i < vel1.size(); i++) {
-            for (int j = 0; j < vel2.size(); j++) {
-                if (vel1.get(i).getKey().equals(vel2.get(j).getKey())) {
-                    newVel1.set(i, vel2.get(j));
-                    newVel2.remove(newVel1.get(i));
-                }
+
+        newVel1.addAll(newVel2);
+        for (int idx2 = vel1.size(), idx1 = idx2 - 1; idx2 < newVel1.size() && idx1 >= 0; idx1--, idx2++) {
+            if (newVel1.get(idx1).equals(newVel1.get(idx2))) {
+                newVel1.remove(idx2);
+                newVel1.remove(idx1);
+                idx2 = idx1 - 1;
             }
+            else break;
         }
-        if (!newVel2.isEmpty()) {
-            newVel1.addAll(newVel2);
-        }
+//        for (int i = 0; i < vel1.size(); i++) {
+//            for (int j = 0; j < vel2.size(); j++) {
+//                if (vel1.get(i).getKey().equals(vel2.get(j).getKey())) {
+//                    newVel1.set(i, vel2.get(j));
+//                    newVel2.remove(newVel1.get(i));
+//                }
+//            }
+//        }
+//        if (!newVel2.isEmpty()) {
+//            newVel1.addAll(newVel2);
+//        }
 
         return newVel1;
     }
@@ -161,19 +163,25 @@ public class Cat {
     private ArrayList<Pair<Integer, Integer>> subtract(ArrayList<Integer> pos1,
                                                        ArrayList<Integer> pos2) {
         ArrayList<Pair<Integer, Integer>> vel = new ArrayList<>();
-//        ArrayList<Integer> pos1Copy = new ArrayList<>(pos1);
-//        while (!pos1.equals(pos2)) {
+        ArrayList<Integer> pos1Copy = new ArrayList<>(pos1);
+        while (!pos1Copy.equals(pos2)) {
             for (int i = 0; i < pos1.size(); i++) {
                 if (!pos1.get(i).equals(pos2.get(i))) {
-//                    int j = pos2.indexOf(pos1Copy.get(i));
-//                    int temp = pos1Copy.get(i);
-//                    pos1Copy.set(i, pos1Copy.get(j));
-//                    pos1Copy.set(j, temp);
-//                    vel.add(new Pair<>(pos1Copy.get(j), pos1Copy.get(i)));
-                    vel.add(new Pair<>(i, pos2.get(i)));
+                    int j = pos2.indexOf(pos1Copy.get(i));
+                    int temp = pos1Copy.get(i);
+                    pos1Copy.set(i, pos1Copy.get(j));
+                    pos1Copy.set(j, temp);
+                    vel.add(new Pair<>(pos1Copy.get(j), pos1Copy.get(i)));
                 }
             }
+        }
+
+//        for (int i = 0; i < pos1.size(); i++) {
+//            if (!pos1.get(i).equals(pos2.get(i))) {
+//                vel.add(new Pair<>(i, pos2.get(i)));
+//            }
 //        }
+
         return vel;
     }
 

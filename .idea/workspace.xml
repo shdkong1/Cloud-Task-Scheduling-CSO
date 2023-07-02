@@ -4,8 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1176ec5b-3c24-4ade-8336-66794d7d7706" name="Changes" comment="fixed cat behavior assignment">
+    <list default="true" id="1176ec5b-3c24-4ade-8336-66794d7d7706" name="Changes" comment="randomized starting point of cats at every new instance call">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/id/ac/its/cloudCSO/CSOAlgorithm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/id/ac/its/cloudCSO/CSOAlgorithm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/id/ac/its/cloudCSO/Cat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/id/ac/its/cloudCSO/Cat.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/id/ac/its/cloudCSO/SimulationCSO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/id/ac/its/cloudCSO/SimulationCSO.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -165,7 +167,14 @@
       <option name="project" value="LOCAL" />
       <updated>1688097660063</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="randomized starting point of cats at every new instance call">
+      <created>1688225421322</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1688225421416</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -219,7 +228,9 @@
     <MESSAGE value="added eval function and integrated CSO to cloudsim simulation" />
     <MESSAGE value="excluded python impl from versioning" />
     <MESSAGE value="fixed cat behavior assignment" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixed cat behavior assignment" />
+    <MESSAGE value="randomized starting point of cats at each iteration" />
+    <MESSAGE value="randomized starting point of cats at every new instance call" />
+    <option name="LAST_COMMIT_MESSAGE" value="randomized starting point of cats at every new instance call" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -229,9 +240,9 @@
           <option name="timeStamp" value="9" />
         </breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/id/ac/its/cloudCSO/SimulationCSO.java</url>
-          <line>195</line>
-          <option name="timeStamp" value="21" />
+          <url>file://$PROJECT_DIR$/src/id/ac/its/cloudCSO/Cat.java</url>
+          <line>166</line>
+          <option name="timeStamp" value="22" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

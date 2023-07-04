@@ -6,6 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="1176ec5b-3c24-4ade-8336-66794d7d7706" name="Changes" comment="randomized starting point of cats at every iteration">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/id/ac/its/cloudCSO/Cat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/id/ac/its/cloudCSO/Cat.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/id/ac/its/cloudCSO/Evaluator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/id/ac/its/cloudCSO/Evaluator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/id/ac/its/cloudCSO/SimulationCSO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/id/ac/its/cloudCSO/SimulationCSO.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -59,7 +61,7 @@
   }
 }</component>
   <component name="RunManager">
-    <configuration name="run" type="Application" factoryName="Application">
+    <configuration name="run" type="Application" factoryName="Application" singleton="false">
       <option name="MAIN_CLASS_NAME" value="id.ac.its.cloudCSO.SimulationCSO" />
       <module name="Cloud-Task-Scheduling-CSO" />
       <method v="2">
@@ -248,8 +250,8 @@
         </breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/id/ac/its/cloudCSO/Cat.java</url>
-          <line>166</line>
-          <option name="timeStamp" value="22" />
+          <line>105</line>
+          <option name="timeStamp" value="23" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

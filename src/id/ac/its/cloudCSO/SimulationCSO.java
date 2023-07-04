@@ -54,12 +54,10 @@ public class SimulationCSO {
         int peCount = 1;                // Number of CPUs
         String vmm = "Xen";             // VMM Name
 
-        Vm[] vm = new Vm[vms];
-
         for (int i = 0; i < vms; i++) {
-            vm[i] = new Vm(i, userId, mips[i % 3], peCount, ram[i % 3], bw, size, vmm,
+            Vm vm = new Vm(i, userId, mips[i % 3], peCount, ram[i % 3], bw, size, vmm,
                     new CloudletSchedulerSpaceShared());
-            list.add(vm[i]);
+            list.add(vm);
         }
 
         return list;
@@ -105,21 +103,20 @@ public class SimulationCSO {
         ArrayList<Double> randomSeed = getSeedValue(cloudletCount);
         LinkedList<Cloudlet> list = new LinkedList<>();
 
-        //Cloudlet parameters
-        long length = 0;
-        long fileSize = 300;
-        long outputSize = 300;
-        int peCount = 1;
-        UtilizationModel utilizationModel = new UtilizationModelFull();
-
-        Cloudlet[] cloudlets = new Cloudlet[cloudletCount];
+                                            // Cloudlet Parameters:
+        long length = 0;                    // Length (MI)
+        long fileSize = 300;                // Input file size (MB)
+        long outputSize = 300;              // Output file size (MB)
+        int peCount = 1;                    // No of required CPUs
+        UtilizationModel utilizationModel = // Utilization model
+                new UtilizationModelFull();
 
         for (int i = 0; i < cloudletCount; i++) {
             long finalLen = length + Double.valueOf(randomSeed.get(i)).longValue();
-            cloudlets[i] = new Cloudlet(i, finalLen, peCount, fileSize, outputSize,
+            Cloudlet cloudlet = new Cloudlet(i, finalLen, peCount, fileSize, outputSize,
                     utilizationModel, utilizationModel, utilizationModel);
-            cloudlets[i].setUserId(userId);
-            list.add(cloudlets[i]);
+            cloudlet.setUserId(userId);
+            list.add(cloudlet);
         }
 
         return list;

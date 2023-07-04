@@ -4,10 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1176ec5b-3c24-4ade-8336-66794d7d7706" name="Changes" comment="randomized starting point of cats at every new instance call">
+    <list default="true" id="1176ec5b-3c24-4ade-8336-66794d7d7706" name="Changes" comment="randomized starting point of cats at every iteration">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/id/ac/its/cloudCSO/CSOAlgorithm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/id/ac/its/cloudCSO/CSOAlgorithm.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/id/ac/its/cloudCSO/Cat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/id/ac/its/cloudCSO/Cat.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/id/ac/its/cloudCSO/SimulationCSO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/id/ac/its/cloudCSO/SimulationCSO.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -96,6 +94,7 @@
       <workItem from="1687503610615" duration="4450000" />
       <workItem from="1687920711844" duration="4191000" />
       <workItem from="1688023002429" duration="17675000" />
+      <workItem from="1688436963581" duration="3394000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <created>1680401584597</created>
@@ -174,7 +173,14 @@
       <option name="project" value="LOCAL" />
       <updated>1688225421416</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="randomized starting point of cats at every iteration">
+      <created>1688312851121</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1688312851142</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -230,7 +236,8 @@
     <MESSAGE value="fixed cat behavior assignment" />
     <MESSAGE value="randomized starting point of cats at each iteration" />
     <MESSAGE value="randomized starting point of cats at every new instance call" />
-    <option name="LAST_COMMIT_MESSAGE" value="randomized starting point of cats at every new instance call" />
+    <MESSAGE value="randomized starting point of cats at every iteration" />
+    <option name="LAST_COMMIT_MESSAGE" value="randomized starting point of cats at every iteration" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -6,7 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="1176ec5b-3c24-4ade-8336-66794d7d7706" name="Changes" comment="fixed cat behavior assignment">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/id/ac/its/cloudCSO/Cat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/id/ac/its/cloudCSO/Cat.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/id/ac/its/cloudCSO/CSOAlgorithm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/id/ac/its/cloudCSO/CSOAlgorithm.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/id/ac/its/cloudCSO/SimulationCSO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/id/ac/its/cloudCSO/SimulationCSO.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -22,7 +22,19 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="InstancesTracker">
+    <option name="classes">
+      <map>
+        <entry key="id.ac.its.cloudCSO.Cat" value="CREATION" />
+      </map>
+    </option>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -39,7 +51,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "master",
+    "git-widget-placeholder": "modified",
     "ignore.virus.scanning.warn.message": "true",
     "last_opened_file_path": "D:/GA-ANN",
     "node.js.detected.package.eslint": "true",
@@ -224,17 +236,7 @@
           <properties class="java.lang.IndexOutOfBoundsException" package="java.lang" />
           <option name="timeStamp" value="9" />
         </breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/id/ac/its/cloudCSO/CSOAlgorithm.java</url>
-          <line>96</line>
-          <option name="timeStamp" value="20" />
-        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
-    <watches-manager>
-      <configuration name="Application">
-        <watch expression="bestCat.getPosition().equals(c.getPosition())" language="JAVA" />
-      </configuration>
-    </watches-manager>
   </component>
 </project>

@@ -54,10 +54,9 @@ public class CSOAlgorithm {
     /**
      * Runs the algorithm instance based on a start position and returns the best cat in population.
      *
-     * @param position  Starting position for all cats.
      * @return          Best cat in the population.
      */
-    public Cat run(ArrayList<Integer> position) {
+    public Cat run() {
         int numSeeking = (int) (params.mixtureRatio * numCats);
         bestScore = Double.POSITIVE_INFINITY;
         bestCat = null;
@@ -71,6 +70,11 @@ public class CSOAlgorithm {
         }
 
         for (int i = 0; i < numCats; i++) {
+            ArrayList<Integer> position = new ArrayList<>();
+            for (int j = 0; j < 9 /* || (cloudletIterator * 54 + i) < cloudletNumber */; j++) {
+                position.add(random.nextInt(9));
+            }
+
             cats[i] = new Cat(
                     position,
                     new ArrayList<>(),

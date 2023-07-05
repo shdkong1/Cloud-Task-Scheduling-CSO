@@ -28,7 +28,7 @@ public class Evaluator {
         int iterator=0;
         dataCenterIterator = dataCenterIterator-1;
 
-        for (int i = dataCenterIterator*6 + cloudletIteration*54; i<9 + dataCenterIterator*6 + cloudletIteration*54; i++)
+        for (int i = dataCenterIterator*6 + cloudletIteration*54; i<9 + dataCenterIterator*9 + cloudletIteration*54; i++)
         {
             int vm = position.get(iterator);
             if (vm%9 == 0 || vm%9 == 3 || vm%9 == 6)

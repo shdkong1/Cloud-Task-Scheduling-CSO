@@ -4,6 +4,7 @@ import javafx.util.Pair;
 import org.apache.commons.math3.stat.StatUtils;
 
 import java.lang.Math;
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Objects;
 import java.util.Random;
@@ -52,6 +53,7 @@ public class Cat {
 
                 if (i == 0) {
                     candidateMoves.add(this.position);
+                    candidateMoves.add(reversePosition(this.position));
                     continue;
                 }
 
@@ -67,6 +69,7 @@ public class Cat {
                     }
                 }
                 candidateMoves.add(positionCopy);
+                candidateMoves.add(reversePosition(positionCopy));
             }
 
             double[] fitnessValues = new double[candidateMoves.size()];
@@ -194,6 +197,18 @@ public class Cat {
         int newLength = (int) (decPart * vel.size());
         ArrayList<Pair<Integer, Integer>> newList = new ArrayList<>(vel.subList(0, newLength));
         return newList;
+    }
+
+    private ArrayList<Integer> reversePosition(ArrayList<Integer> position) {
+        ArrayList<Integer> newPosition = new ArrayList<>();
+
+        for (int pos: position) {
+            int diff = Math.abs(pos - 5) * 2;
+            if (pos < 5) newPosition.add(pos + diff);
+            else newPosition.add(pos - diff);
+        }
+
+        return newPosition;
     }
 
     public ArrayList<Integer> getPosition() {

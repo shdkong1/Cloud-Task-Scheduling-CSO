@@ -203,7 +203,7 @@ public class Cat {
         ArrayList<Integer> newPosition = new ArrayList<>();
 
         for (int pos: position) {
-            int diff = Math.abs(pos - 5) * 2;
+            int diff = Math.abs(pos - 4) * 2;
             if (pos < 5) newPosition.add(pos + diff);
             else newPosition.add(pos - diff);
         }

@@ -4,6 +4,7 @@ import javafx.util.Pair;
 import org.apache.commons.math3.stat.StatUtils;
 
 import java.lang.Math;
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Objects;
 import java.util.Random;
@@ -52,6 +53,7 @@ public class Cat {
 
                 if (i == 0) {
                     candidateMoves.add(this.position);
+                    candidateMoves.add(reversePosition(this.position));
                     continue;
                 }
 
@@ -67,6 +69,7 @@ public class Cat {
                     }
                 }
                 candidateMoves.add(positionCopy);
+                candidateMoves.add(reversePosition(positionCopy));
             }
 
             double[] fitnessValues = new double[candidateMoves.size()];
@@ -135,10 +138,12 @@ public class Cat {
 
         ArrayList<Pair<Integer, Integer>> newVel1 = new ArrayList<>(vel1);
         ArrayList<Pair<Integer, Integer>> newVel2 = new ArrayList<>(vel2);
-//        for (int idx2 = vel1.size(), idx1 = idx2 - 1; idx2 < newVel.size() && idx1 >= 0; idx1--, idx2++) {
-//            if (newVel.get(idx1).equals(newVel.get(idx2))) {
-//                newVel.remove(idx2);
-//                newVel.remove(idx1);
+//
+//        newVel1.addAll(newVel2);
+//        for (int idx2 = vel1.size(), idx1 = idx2 - 1; idx2 < newVel1.size() && idx1 >= 0; idx1--, idx2++) {
+//            if (newVel1.get(idx1).equals(newVel1.get(idx2))) {
+//                newVel1.remove(idx2);
+//                newVel1.remove(idx1);
 //                idx2 = idx1 - 1;
 //            }
 //            else break;
@@ -162,18 +167,24 @@ public class Cat {
                                                        ArrayList<Integer> pos2) {
         ArrayList<Pair<Integer, Integer>> vel = new ArrayList<>();
 //        ArrayList<Integer> pos1Copy = new ArrayList<>(pos1);
-//        while (!pos1.equals(pos2)) {
-            for (int i = 0; i < pos1.size(); i++) {
-                if (!pos1.get(i).equals(pos2.get(i))) {
+//        while (!pos1Copy.equals(pos2)) {
+//            for (int i = 0; i < pos1.size(); i++) {
+//                if (!pos1.get(i).equals(pos2.get(i))) {
 //                    int j = pos2.indexOf(pos1Copy.get(i));
 //                    int temp = pos1Copy.get(i);
 //                    pos1Copy.set(i, pos1Copy.get(j));
 //                    pos1Copy.set(j, temp);
 //                    vel.add(new Pair<>(pos1Copy.get(j), pos1Copy.get(i)));
-                    vel.add(new Pair<>(i, pos2.get(i)));
-                }
-            }
+//                }
+//            }
 //        }
+
+        for (int i = 0; i < pos1.size(); i++) {
+            if (!pos1.get(i).equals(pos2.get(i))) {
+                vel.add(new Pair<>(i, pos2.get(i)));
+            }
+        }
+
         return vel;
     }
 
@@ -186,6 +197,18 @@ public class Cat {
         int newLength = (int) (decPart * vel.size());
         ArrayList<Pair<Integer, Integer>> newList = new ArrayList<>(vel.subList(0, newLength));
         return newList;
+    }
+
+    private ArrayList<Integer> reversePosition(ArrayList<Integer> position) {
+        ArrayList<Integer> newPosition = new ArrayList<>();
+
+        for (int pos: position) {
+            int diff = Math.abs(pos - 4) * 2;
+            if (pos < 4) newPosition.add(pos + diff);
+            else newPosition.add(pos - diff);
+        }
+
+        return newPosition;
     }
 
     public ArrayList<Integer> getPosition() {

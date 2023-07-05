@@ -74,7 +74,7 @@ public class SimulationCSO {
     private static ArrayList<Double> getSeedValue(int cloudletCount) {
 
         ArrayList<Double> seed = new ArrayList<>();
-        String filepath = System.getProperty("user.dir") + "/SDSCDataset.txt"; // name of dataset file
+        String filepath = System.getProperty("user.dir") + "/StratRandomDataset.txt"; // name of dataset file
         Log.printLine(System.getProperty(filepath));
 
         try {
@@ -137,7 +137,7 @@ public class SimulationCSO {
             BufferedWriter outputWriter = null;
             outputWriter = new BufferedWriter(new FileWriter("filename.txt"));
             int vmNumber = 54;
-            int cloudletNumber = 7395;
+            int cloudletNumber = 10000;
 
             // Initialize simulation
             CloudSim.init(num_user, calendar, trace_flag);

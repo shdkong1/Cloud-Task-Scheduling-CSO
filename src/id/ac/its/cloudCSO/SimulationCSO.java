@@ -183,9 +183,10 @@ public class SimulationCSO {
 
                     Cat currentCat = cso.run();
 
-                    for (int assigner=0+(datacenterIterator-1)*9 + cloudletIterator*54; assigner<9+(datacenterIterator-1)*9 + cloudletIterator*54; assigner++)
+                    int offset = (datacenterIterator - 1) * 9 + cloudletIterator * 54;
+                    for (int assigner= offset; assigner < offset + 9; assigner++)
                     {
-                        broker.bindCloudletToVm(assigner, currentCat.getPosition().get(assigner%9));
+                        broker.bindCloudletToVm(assigner, currentCat.getPosition().get(assigner%9) + (datacenterIterator - 1) * 9);
 //                        outputWriter.write(Long.toString(cloudletList.get(assigner).getCloudletLength())); // Print Cloudlet Length
 //                        outputWriter.write(" ");
                         outputWriter.write(Long.toString(currentCat.getPosition().get(assigner%9)%9)); // Print Assigned VM ID %

@@ -190,7 +190,7 @@ public class SimulationCSO {
                         broker.bindCloudletToVm(assigner, currentCat.getPosition().get(assigner%9) + (datacenterIterator - 1) * 9);
 //                        outputWriter.write(Long.toString(cloudletList.get(assigner).getCloudletLength())); // Print Cloudlet Length
 //                        outputWriter.write(" ");
-                        outputWriter.write(Long.toString(currentCat.getPosition().get(assigner%9)%9)); // Print Assigned VM ID %
+                        outputWriter.write(Long.toString(currentCat.getPosition().get(assigner%9)%9 + (datacenterIterator - 1) * 9)); // Print Assigned VM ID %
                         outputWriter.write(" ");
                         if (assigner%9<8)
                         {
@@ -378,21 +378,21 @@ public class SimulationCSO {
 
         double totalStartTime = 0.0;
         for (int i = 0; i < size; i++) {
-            totalStartTime = cloudletList.get(i).getExecStartTime();
+            totalStartTime += cloudletList.get(i).getExecStartTime();
         }
         double avgStartTime = totalStartTime / size;
-        System.out.println("Average Start Time" + avgStartTime);
+        System.out.println("Average Start Time: " + avgStartTime);
 
         double execTime = 0.0;
         for (int i = 0; i < size; i++) {
-            execTime = cloudletList.get(i).getActualCPUTime();
+            execTime += cloudletList.get(i).getActualCPUTime();
         }
         double avgExecTime = execTime / size;
         System.out.println("Average Execution Time: " + avgExecTime);
 
         double totalTime = 0.0;
         for (int i = 0; i < size; i++) {
-            totalTime = cloudletList.get(i).getFinishTime();
+            totalTime += cloudletList.get(i).getFinishTime();
         }
         double avgTotalTime = totalTime / size;
         System.out.println("Average Finish Time: " + avgTotalTime);
